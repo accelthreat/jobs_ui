@@ -9,6 +9,7 @@ class MiniJobCard extends StatelessWidget {
     return Container(
       height: 60,
       child: Material(
+        elevation: 0.5,
         borderRadius: BorderRadius.circular(8.0),
         color: Colors.white,
         child: Container(

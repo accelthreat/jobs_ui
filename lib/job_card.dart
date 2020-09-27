@@ -21,10 +21,11 @@ class JobCard extends StatelessWidget {
                     "Senior UX Designer",
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold),
                   ),
                   Container(padding: EdgeInsets.only(right: 16.0)),
+                  Spacer(),
                   Icon(
                     Icons.bookmark,
                     color: theme_light_gray,
@@ -80,6 +81,7 @@ class JobCard extends StatelessWidget {
                         )
                       ],
                     ),
+                    Spacer(),
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: Text(
