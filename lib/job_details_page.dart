@@ -17,40 +17,39 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: Container(
+          margin: EdgeInsets.only(top: 16.0, left: 16.0),
+          child: Material(
+            elevation: 1,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0),
+                side: BorderSide(width: 0.5, color: theme_dark_gray)),
+            color: Colors.white,
+            child: InkWell(
+              onTap: () => {Navigator.of(context).pop()},
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(
+                  Icons.arrow_back,
+                  color: theme_black,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
       body: Container(
         color: theme_gray,
-        child: ListView(children: [
+        child: ListView(padding: EdgeInsets.only(top: 0), children: [
           Container(
-            child: Stack(
-              children: [
-                Container(
-                  height: 200,
-                  child: Image.asset(
-                    "assets/job_bg.png",
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                    margin: EdgeInsets.only(top: 16.0, left: 16.0),
-                    child: Material(
-                      borderRadius: BorderRadius.circular(8.0),
-                      color: Colors.white,
-                      child: InkWell(
-                        onTap: () => {Navigator.of(context).pop()},
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Icon(
-                            Icons.arrow_back,
-                            color: theme_black,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+            height: 200,
+            child: Image.asset(
+              "assets/job_bg.png",
+              fit: BoxFit.cover,
             ),
           ),
           Container(
@@ -150,12 +149,12 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
           ),
           SizedBox(height: 16.0),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: List<Widget>.generate(
                   3,
-                  (index) => Expanded(
+                  (index) => Container(
                         child: ChoiceChip(
                           backgroundColor: Colors.white,
                           selectedColor: theme_black,
@@ -216,7 +215,8 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
             height: 16,
           ),
           Container(
-              margin: EdgeInsets.symmetric(horizontal: 24),
+              margin: EdgeInsets.symmetric(horizontal: 24)
+                  .add(EdgeInsets.only(bottom: 24.0)),
               child: Material(
                 borderRadius: BorderRadius.circular(8),
                 color: Colors.white,
@@ -254,10 +254,11 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
           children: [
             Material(
               borderRadius: BorderRadius.circular(8.0),
-              elevation: 0.5,
+              elevation: 1,
               color: Colors.white,
               child: InkWell(
-                onTap: () => {Navigator.of(context).pop()},
+                borderRadius: BorderRadius.circular(8.0),
+                onTap: () => {},
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Icon(
