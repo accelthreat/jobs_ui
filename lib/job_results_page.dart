@@ -11,7 +11,7 @@ class ChipData {
 
 class JobResultsPage extends StatefulWidget {
   final chips = [
-    ChipData("UI Designer", false),
+    ChipData("UI Designer", true),
     ChipData("UX Designer", false),
     ChipData("Product", false),
     ChipData("Mock Designer", false)

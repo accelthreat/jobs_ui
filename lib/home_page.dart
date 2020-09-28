@@ -148,7 +148,7 @@ class HomePage extends StatelessWidget {
                       ]),
                     ),
                     Container(
-                      padding: EdgeInsets.only(bottom: 16),
+                      padding: EdgeInsets.only(bottom: 32),
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -209,8 +209,9 @@ class HomePage extends StatelessWidget {
                             )
                           ]),
                     ),
-                    Padding(
+                    Container(
                       padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                      margin: EdgeInsets.only(bottom: 32.0),
                       child: ListView.separated(
                         primary: false,
                         shrinkWrap: true,
