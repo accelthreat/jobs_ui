@@ -5,42 +5,39 @@ import 'mini_job_card.dart';
 import 'theme.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key key}) : super(key: key);
+  HomePage({Key key}) : super(key: key);
+
+  final jobResults = [
+    JobCardInfo(
+      jobTitle: "Senior UX Designer",
+      pay: "\$40-90k/year",
+      company: "Chanel Inc. LLC",
+      place: "San Diego",
+      img: "assets/chanel.png",
+      daysLeft: 4,
+    ),
+    JobCardInfo(
+      jobTitle: "Full-Stack Designer",
+      pay: "\$30-70k/year",
+      company: "Uber Technologies Inc",
+      place: "San Francisco",
+      img: "assets/uber.png",
+      daysLeft: 9,
+    ),
+    JobCardInfo(
+      jobTitle: "Senior UX Designer",
+      pay: "\$40-90k/year",
+      company: "Chanel Inc. LLC",
+      place: "San Diego",
+      img: "assets/chanel.png",
+      daysLeft: 4,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // appBar: AppBar(
-        //   elevation: 0,
-        //   backgroundColor: theme_gray,
-        //   leading: Material(
-        //     borderRadius: BorderRadius.circular(8.0),
-        //     color: Colors.white,
-        //     child: InkWell(
-        //       onTap: () => {},
-        //       child: Padding(
-        //         padding: const EdgeInsets.all(8.0),
-        //         child: Icon(
-        //           Icons.home,
-        //           color: theme_black,
-        //         ),
-        //       ),
-        //     ),
-        //   ),
-        //   title: Text(
-        //     "Jobs",
-        //     style: TextStyle(
-        //         fontWeight: FontWeight.bold, fontSize: 18, color: theme_black),
-        //   ),
-        //   actions: [
-        //     Image.asset(
-        //       "assets/avatar.png",
-        //       height: 50,
-        //       width: 50,
-        //     )
-        //   ],
-        // ),
         body: Container(
           color: theme_gray,
           child: Column(
@@ -66,14 +63,18 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "Jobs",
+                      "JobsUI",
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
-                    Image.asset(
-                      "assets/avatar.png",
-                      height: 50,
-                      width: 50,
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(16.0),
+                      child: Image.asset(
+                        "assets/profile.jpg",
+                        height: 50,
+                        width: 50,
+                        fit: BoxFit.cover,
+                      ),
                     )
                   ],
                 ),
@@ -178,8 +179,12 @@ class HomePage extends StatelessWidget {
                       child: ListView.separated(
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, i) =>
-                            Container(width: 250, child: JobCard()),
+                        itemBuilder: (context, i) => Container(
+                            width: 260,
+                            child: JobCard(
+                              jobType: i % 2,
+                              jobCardInfo: jobResults[i],
+                            )),
                         separatorBuilder: (BuildContext context, int index) {
                           return SizedBox(
                             width: 16,

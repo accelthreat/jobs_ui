@@ -21,6 +21,33 @@ class JobResultsPage extends StatefulWidget {
 }
 
 class _JobResultsPageState extends State<JobResultsPage> {
+  final jobResults = [
+    JobCardInfo(
+      jobTitle: "Senior UX Designer",
+      pay: "\$40-90k/year",
+      company: "Chanel Inc. LLC",
+      place: "San Diego",
+      img: "assets/chanel.png",
+      daysLeft: 4,
+    ),
+    JobCardInfo(
+      jobTitle: "Full-Stack Designer",
+      pay: "\$30-70k/year",
+      company: "Uber Technologies Inc",
+      place: "San Francisco",
+      img: "assets/uber.png",
+      daysLeft: 67,
+    ),
+    JobCardInfo(
+      jobTitle: "Senior UX Designer",
+      pay: "\$40-90k/year",
+      company: "Chanel Inc. LLC",
+      place: "San Diego",
+      img: "assets/chanel.png",
+      daysLeft: 4,
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -154,7 +181,10 @@ class _JobResultsPageState extends State<JobResultsPage> {
                     child: ListView.separated(
                       primary: false,
                       shrinkWrap: true,
-                      itemBuilder: (context, i) => JobCard(),
+                      itemBuilder: (context, i) => JobCard(
+                        jobType: i % 2,
+                        jobCardInfo: jobResults[i],
+                      ),
                       separatorBuilder: (BuildContext context, int index) {
                         return SizedBox(
                           height: 16,

@@ -3,15 +3,35 @@ import 'package:jobs_ui/theme.dart';
 
 import 'job_details_page.dart';
 
+class JobCardInfo {
+  JobCardInfo(
+      {this.jobTitle,
+      this.pay,
+      this.company,
+      this.place,
+      this.img,
+      this.daysLeft});
+
+  final String jobTitle;
+  final String pay;
+  final String company;
+  final String place;
+  final String img;
+  final int daysLeft;
+}
+
 class JobCard extends StatelessWidget {
-  const JobCard({Key key}) : super(key: key);
+  const JobCard({Key key, this.jobType, this.jobCardInfo}) : super(key: key);
+
+  final int jobType;
+  final JobCardInfo jobCardInfo;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Material(
         borderRadius: BorderRadius.circular(16.0),
-        color: theme_black,
+        color: jobType == 0 ? theme_black : Colors.white,
         child: InkWell(
           onTap: () => Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => JobDetailsPage())),
@@ -23,9 +43,9 @@ class JobCard extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "Senior UX Designer",
+                      jobCardInfo.jobTitle,
                       style: TextStyle(
-                          color: Colors.white,
+                          color: jobType == 0 ? Colors.white : theme_black,
                           fontSize: 14,
                           fontWeight: FontWeight.bold),
                     ),
@@ -39,19 +59,22 @@ class JobCard extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Text("\$40-90k/year",
+                    Text(jobCardInfo.pay,
                         style:
                             TextStyle(color: theme_darkest_gray, fontSize: 10)),
                     Container(padding: EdgeInsets.only(right: 8.0)),
                     Material(
                         borderRadius: BorderRadius.circular(4.0),
-                        color: theme_light_gray,
+                        color: jobType == 0 ? theme_light_gray : theme_gray,
                         child: Container(
                           padding: EdgeInsets.all(4.0),
                           child: Text(
                             "Full Time",
-                            style:
-                                TextStyle(color: theme_dark_gray, fontSize: 10),
+                            style: TextStyle(
+                                color: jobType == 0
+                                    ? theme_dark_gray
+                                    : Colors.black,
+                                fontSize: 10),
                           ),
                         ))
                   ],
@@ -64,7 +87,7 @@ class JobCard extends StatelessWidget {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.0),
                         child: Image.asset(
-                          "assets/chanel.png",
+                          jobCardInfo.img,
                           height: 40,
                           width: 40,
                         ),
@@ -75,12 +98,15 @@ class JobCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Chanel Inc. LLC",
-                            style:
-                                TextStyle(color: theme_dark_gray, fontSize: 12),
+                            jobCardInfo.company,
+                            style: TextStyle(
+                                color: jobType == 0
+                                    ? theme_dark_gray
+                                    : theme_black,
+                                fontSize: 12),
                           ),
                           Text(
-                            "San Diego",
+                            jobCardInfo.place,
                             style: TextStyle(
                                 color: theme_darkest_gray, fontSize: 10),
                           )
@@ -90,8 +116,10 @@ class JobCard extends StatelessWidget {
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: Text(
-                          "4 Days Left",
-                          style: TextStyle(color: theme_red, fontSize: 10),
+                          "${jobCardInfo.daysLeft} Days Left",
+                          style: TextStyle(
+                              color: jobType == 0 ? theme_red : theme_black,
+                              fontSize: 10),
                         ),
                       )
                     ],

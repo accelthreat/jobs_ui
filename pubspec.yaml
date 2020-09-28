@@ -52,7 +52,7 @@ flutter:
   uses-material-design: true
 
   assets:
-  - assets/avatar.png
+  - assets/profile.jpg
   - assets/uber.png
   - assets/chanel.png
   - assets/job_bg.png
