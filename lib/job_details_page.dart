@@ -18,24 +18,29 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
     return SafeArea(
         child: Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: Container(
-          margin: EdgeInsets.only(top: 16.0, left: 16.0),
-          child: Material(
-            elevation: 1,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
-                side: BorderSide(width: 0.5, color: theme_dark_gray)),
-            color: Colors.white,
-            child: InkWell(
-              onTap: () => {Navigator.of(context).pop()},
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.arrow_back,
-                  color: theme_black,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(100.0),
+        child: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: Container(
+            width: 60,
+            height: 60,
+            margin: EdgeInsets.only(top: 16.0, left: 16.0),
+            child: Material(
+              elevation: 1,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  side: BorderSide(width: 0.5, color: theme_dark_gray)),
+              color: Colors.white,
+              child: InkWell(
+                onTap: () => {Navigator.of(context).pop()},
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(
+                    Icons.arrow_back,
+                    color: theme_black,
+                  ),
                 ),
               ),
             ),
@@ -46,7 +51,7 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
         color: theme_gray,
         child: ListView(padding: EdgeInsets.only(top: 0), children: [
           Container(
-            height: 200,
+            height: 250,
             child: Image.asset(
               "assets/job_bg.png",
               fit: BoxFit.cover,
@@ -70,32 +75,28 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                           "Senior UX Designer",
                           style: TextStyle(
                               color: theme_black,
-                              fontSize: 14,
+                              fontSize: 30,
                               fontWeight: FontWeight.bold),
                         ),
                         Container(padding: EdgeInsets.only(right: 16.0)),
-                        Spacer(),
-                        Icon(
-                          Icons.bookmark,
-                          color: theme_light_gray,
-                        )
                       ],
                     ),
                     Row(
                       children: [
                         Text("\$40-90k/year",
                             style: TextStyle(
-                                color: theme_darkest_gray, fontSize: 10)),
+                                color: theme_darkest_gray, fontSize: 16)),
                         Container(padding: EdgeInsets.only(right: 8.0)),
                         Material(
                             borderRadius: BorderRadius.circular(4.0),
                             color: theme_gray,
                             child: Container(
-                              padding: EdgeInsets.all(4.0),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 6.0, horizontal: 8.0),
                               child: Text(
                                 "Full Time",
-                                style:
-                                    TextStyle(color: theme_black, fontSize: 10),
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 14),
                               ),
                             ))
                       ],
@@ -120,13 +121,15 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                             children: [
                               Text(
                                 "Chanel Inc. LLC",
-                                style:
-                                    TextStyle(color: theme_black, fontSize: 12),
+                                style: TextStyle(
+                                  color: theme_black,
+                                  fontSize: 16,
+                                ),
                               ),
                               Text(
                                 "San Diego",
                                 style: TextStyle(
-                                    color: theme_darkest_gray, fontSize: 10),
+                                    color: theme_darkest_gray, fontSize: 14),
                               )
                             ],
                           ),
@@ -136,7 +139,7 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                             child: Text(
                               "4 Days Left",
                               style:
-                                  TextStyle(color: theme_black, fontSize: 10),
+                                  TextStyle(color: theme_black, fontSize: 14),
                             ),
                           )
                         ],
@@ -156,6 +159,7 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                   3,
                   (index) => Container(
                         child: ChoiceChip(
+                          padding: EdgeInsets.all(10),
                           backgroundColor: Colors.white,
                           selectedColor: theme_black,
                           shape: RoundedRectangleBorder(
@@ -165,7 +169,7 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                             style: TextStyle(
                               color:
                                   index == tabVal ? Colors.white : theme_black,
-                              fontSize: 12,
+                              fontSize: 16,
                             ),
                           ),
                           selected: index == tabVal,
@@ -195,17 +199,17 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                       Text("Qualifications",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 14,
+                              fontSize: 20,
                               color: theme_black)),
                       SizedBox(height: 8),
                       Text(
                         "• Three or more years of UX design experience. Preference will be given to candidates who have experience designing complex solutions",
-                        style: TextStyle(color: theme_light_gray, fontSize: 10),
+                        style: TextStyle(color: theme_light_gray, fontSize: 16),
                       ),
                       SizedBox(height: 8),
                       Text(
                         "• Three or more years of UX design experience. Preference will be given to candidates who have experience designing complex solutions",
-                        style: TextStyle(color: theme_light_gray, fontSize: 10),
+                        style: TextStyle(color: theme_light_gray, fontSize: 16),
                       )
                     ],
                   ),
@@ -229,17 +233,17 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                       Text("About the Job",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 14,
+                              fontSize: 20,
                               color: theme_black)),
                       SizedBox(height: 8),
                       Text(
                         "• Three or more years of UX design experience. Preference will be given to candidates who have experience designing complex solutions",
-                        style: TextStyle(color: theme_light_gray, fontSize: 10),
+                        style: TextStyle(color: theme_light_gray, fontSize: 16),
                       ),
                       SizedBox(height: 8),
                       Text(
                         "• Three or more years of UX design experience. Preference will be given to candidates who have experience designing complex solutions",
-                        style: TextStyle(color: theme_light_gray, fontSize: 10),
+                        style: TextStyle(color: theme_light_gray, fontSize: 16),
                       )
                     ],
                   ),
@@ -249,36 +253,43 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
       ),
       bottomNavigationBar: BottomAppBar(
           child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
         child: Row(
           children: [
-            Material(
-              borderRadius: BorderRadius.circular(8.0),
-              elevation: 1,
-              color: Colors.white,
-              child: InkWell(
+            Container(
+              width: 60,
+              height: 60,
+              child: Material(
                 borderRadius: BorderRadius.circular(8.0),
-                onTap: () => {},
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Icon(
-                    Icons.bookmark,
-                    color: theme_black,
+                elevation: 1,
+                color: Colors.white,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(8.0),
+                  onTap: () => {},
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Icon(
+                      Icons.bookmark,
+                      color: theme_black,
+                    ),
                   ),
                 ),
               ),
             ),
             SizedBox(width: 16.0),
             Expanded(
-              child: FlatButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0)),
-                child: Text(
-                  "Apply Now",
-                  style: TextStyle(color: Colors.white),
+              child: Container(
+                height: 60,
+                child: FlatButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0)),
+                  child: Text(
+                    "Apply Now",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                  color: theme_black,
+                  onPressed: () => {},
                 ),
-                color: theme_black,
-                onPressed: () => {},
               ),
             )
           ],

@@ -7,13 +7,13 @@ class MiniJobCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
+      height: 80,
       child: Material(
         elevation: 0.5,
         borderRadius: BorderRadius.circular(8.0),
         color: Colors.white,
         child: Container(
-          padding: EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(16.0),
           child: Row(
             children: [
               ClipRRect(
@@ -30,15 +30,15 @@ class MiniJobCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Senior Product Designer",
+                    "Senior Designer",
                     style: TextStyle(
                         color: theme_black,
-                        fontSize: 12,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
                     "Chanel · Full Time",
-                    style: TextStyle(color: theme_darkest_gray, fontSize: 10),
+                    style: TextStyle(color: theme_darkest_gray, fontSize: 16),
                   )
                 ],
               ),
@@ -48,9 +48,9 @@ class MiniJobCard extends StatelessWidget {
                 child: Text(
                   "4 Days Left",
                   style: TextStyle(
-                    color: theme_black,
-                    fontSize: 10,
-                  ),
+                      color: theme_black,
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold),
                 ),
               )
             ],

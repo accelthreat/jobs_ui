@@ -48,16 +48,21 @@ class HomePage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Material(
-                      borderRadius: BorderRadius.circular(8.0),
-                      color: Colors.white,
-                      child: InkWell(
-                        onTap: () => {},
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Icon(
-                            Icons.home,
-                            color: theme_black,
+                    Container(
+                      height: 60,
+                      width: 60,
+                      child: Material(
+                        elevation: 1,
+                        borderRadius: BorderRadius.circular(8.0),
+                        color: Colors.white,
+                        child: InkWell(
+                          onTap: () => {},
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Icon(
+                              Icons.home,
+                              color: theme_black,
+                            ),
                           ),
                         ),
                       ),
@@ -65,14 +70,14 @@ class HomePage extends StatelessWidget {
                     Text(
                       "JobsUI",
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                     ),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
                       child: Image.asset(
                         "assets/profile.jpg",
-                        height: 50,
-                        width: 50,
+                        height: 60,
+                        width: 60,
                         fit: BoxFit.cover,
                       ),
                     )
@@ -87,7 +92,7 @@ class HomePage extends StatelessWidget {
                       child: Text(
                         "Good Morning Alex",
                         style:
-                            TextStyle(color: theme_darkest_gray, fontSize: 14),
+                            TextStyle(color: theme_darkest_gray, fontSize: 16),
                       ),
                     ),
                     Container(
@@ -99,7 +104,7 @@ class HomePage extends StatelessWidget {
                         "Find Your Creative Job",
                         style: TextStyle(
                             color: theme_black,
-                            fontSize: 30,
+                            fontSize: 36,
                             fontWeight: FontWeight.bold,
                             height: 1),
                       ),
@@ -107,46 +112,58 @@ class HomePage extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.only(bottom: 16),
                     ),
-                    Padding(
+                    Container(
                       padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                      child: Row(children: [
-                        Expanded(
-                          child: Container(
-                            margin: EdgeInsets.only(right: 16.0),
-                            child: Material(
-                              elevation: 0.5,
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Container(
-                                padding: EdgeInsets.fromLTRB(16.0, 0, 16.0, 0),
-                                child: TextField(
-                                  style: TextStyle(fontSize: 14),
-                                  decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      hintText: 'Search for jobs'),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 5,
+                            child: Container(
+                              margin: EdgeInsets.only(right: 16.0),
+                              child: Material(
+                                elevation: 0.5,
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Container(
+                                  padding:
+                                      EdgeInsets.fromLTRB(16.0, 8, 16.0, 8),
+                                  child: TextField(
+                                    style: TextStyle(fontSize: 20),
+                                    decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                        hintText: 'Search for jobs'),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        Material(
-                          borderRadius: BorderRadius.circular(8.0),
-                          color: theme_black,
-                          child: InkWell(
-                            onTap: () => {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => JobResultsPage()))
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Icon(
-                                Icons.search,
-                                color: Colors.white,
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              height: 60,
+                              child: Material(
+                                borderRadius: BorderRadius.circular(8.0),
+                                color: theme_black,
+                                child: InkWell(
+                                  onTap: () => {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                JobResultsPage()))
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Icon(
+                                      Icons.search,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ]),
+                        ],
+                      ),
                     ),
                     Container(
                       padding: EdgeInsets.only(bottom: 32),
@@ -160,27 +177,27 @@ class HomePage extends StatelessWidget {
                             Text(
                               "Popular Jobs",
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 16),
+                                  fontWeight: FontWeight.bold, fontSize: 24),
                             ),
                             InkWell(
                               onTap: () => {},
                               child: Text(
                                 "Show all",
                                 style: TextStyle(
-                                    color: theme_darkest_gray, fontSize: 10.0),
+                                    color: theme_darkest_gray, fontSize: 16.0),
                               ),
                             )
                           ]),
                     ),
                     Container(
-                      height: 137,
+                      height: 170,
                       margin: EdgeInsets.only(bottom: 32.0),
                       padding: const EdgeInsets.only(left: 24.0),
                       child: ListView.separated(
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, i) => Container(
-                            width: 260,
+                            width: 330,
                             child: JobCard(
                               jobType: i % 2,
                               jobCardInfo: jobResults[i],
@@ -202,14 +219,14 @@ class HomePage extends StatelessWidget {
                             Text(
                               "Recent Jobs",
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 16),
+                                  fontWeight: FontWeight.bold, fontSize: 24),
                             ),
                             InkWell(
                               onTap: () => {},
                               child: Text(
                                 "Show all",
                                 style: TextStyle(
-                                    color: theme_darkest_gray, fontSize: 10.0),
+                                    color: theme_darkest_gray, fontSize: 16.0),
                               ),
                             )
                           ]),
@@ -226,7 +243,7 @@ class HomePage extends StatelessWidget {
                             height: 12,
                           );
                         },
-                        itemCount: 3,
+                        itemCount: 5,
                       ),
                     )
                   ],

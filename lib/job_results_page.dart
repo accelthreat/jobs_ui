@@ -62,25 +62,30 @@ class _JobResultsPageState extends State<JobResultsPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Material(
-                    borderRadius: BorderRadius.circular(8.0),
-                    color: Colors.white,
-                    child: InkWell(
-                      onTap: () => {Navigator.of(context).pop()},
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Icon(
-                          Icons.arrow_back,
-                          color: theme_black,
+                  Container(
+                    height: 60,
+                    width: 60,
+                    child: Material(
+                      elevation: 1,
+                      borderRadius: BorderRadius.circular(8.0),
+                      color: Colors.white,
+                      child: InkWell(
+                        onTap: () => {Navigator.of(context).pop()},
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(
+                            Icons.arrow_back,
+                            color: theme_black,
+                          ),
                         ),
                       ),
                     ),
                   ),
                   Text(
-                    "Jobs",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    "JobsUI",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                   ),
-                  SizedBox(width: 40.0)
+                  SizedBox(width: 60.0)
                 ],
               ),
             ),
@@ -91,6 +96,7 @@ class _JobResultsPageState extends State<JobResultsPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 24.0),
                     child: Row(children: [
                       Expanded(
+                        flex: 5,
                         child: Container(
                           margin: EdgeInsets.only(right: 16.0),
                           child: Material(
@@ -98,9 +104,9 @@ class _JobResultsPageState extends State<JobResultsPage> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(8.0),
                             child: Container(
-                              padding: EdgeInsets.fromLTRB(16.0, 0, 16.0, 0),
+                              padding: EdgeInsets.fromLTRB(16.0, 8, 16.0, 8),
                               child: TextField(
-                                style: TextStyle(fontSize: 14),
+                                style: TextStyle(fontSize: 20),
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: 'UI Designer'),
@@ -109,16 +115,21 @@ class _JobResultsPageState extends State<JobResultsPage> {
                           ),
                         ),
                       ),
-                      Material(
-                        borderRadius: BorderRadius.circular(8.0),
-                        color: theme_black,
-                        child: InkWell(
-                          onTap: () => {},
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Icon(
-                              Icons.search,
-                              color: Colors.white,
+                      Expanded(
+                        child: Container(
+                          height: 60,
+                          child: Material(
+                            borderRadius: BorderRadius.circular(8.0),
+                            color: theme_black,
+                            child: InkWell(
+                              onTap: () => {},
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Icon(
+                                  Icons.search,
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
                           ),
                         ),
@@ -133,7 +144,7 @@ class _JobResultsPageState extends State<JobResultsPage> {
                     child: Text(
                       "32 Job Opportunity Found",
                       style: TextStyle(
-                          fontSize: 14.0, fontWeight: FontWeight.bold),
+                          fontSize: 20.0, fontWeight: FontWeight.bold),
                     ),
                   ),
                   SizedBox(
@@ -147,6 +158,7 @@ class _JobResultsPageState extends State<JobResultsPage> {
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, i) => FilterChip(
+                        padding: EdgeInsets.all(10.0),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         checkmarkColor: Colors.green,
@@ -159,7 +171,7 @@ class _JobResultsPageState extends State<JobResultsPage> {
                         label: Text(
                           widget.chips[i].name,
                           style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 16,
                               color: widget.chips[i].selected
                                   ? Colors.white
                                   : theme_black),
@@ -187,7 +199,7 @@ class _JobResultsPageState extends State<JobResultsPage> {
                       ),
                       separatorBuilder: (BuildContext context, int index) {
                         return SizedBox(
-                          height: 16,
+                          height: 24,
                         );
                       },
                       itemCount: 3,

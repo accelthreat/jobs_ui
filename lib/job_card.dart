@@ -46,7 +46,7 @@ class JobCard extends StatelessWidget {
                       jobCardInfo.jobTitle,
                       style: TextStyle(
                           color: jobType == 0 ? Colors.white : theme_black,
-                          fontSize: 14,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold),
                     ),
                     Container(padding: EdgeInsets.only(right: 16.0)),
@@ -57,29 +57,35 @@ class JobCard extends StatelessWidget {
                     )
                   ],
                 ),
+                SizedBox(
+                  height: 8.0,
+                ),
                 Row(
                   children: [
                     Text(jobCardInfo.pay,
                         style:
-                            TextStyle(color: theme_darkest_gray, fontSize: 10)),
+                            TextStyle(color: theme_darkest_gray, fontSize: 16)),
                     Container(padding: EdgeInsets.only(right: 8.0)),
                     Material(
                         borderRadius: BorderRadius.circular(4.0),
                         color: jobType == 0 ? theme_light_gray : theme_gray,
                         child: Container(
-                          padding: EdgeInsets.all(4.0),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 6.0, horizontal: 8.0),
                           child: Text(
                             "Full Time",
                             style: TextStyle(
                                 color: jobType == 0
                                     ? theme_dark_gray
                                     : Colors.black,
-                                fontSize: 10),
+                                fontSize: 14),
                           ),
                         ))
                   ],
                 ),
-                Container(padding: EdgeInsets.only(bottom: 16.0)),
+                SizedBox(
+                  height: 36.0,
+                ),
                 SizedBox(
                   height: 40,
                   child: Row(
@@ -92,7 +98,7 @@ class JobCard extends StatelessWidget {
                           width: 40,
                         ),
                       ),
-                      Container(padding: EdgeInsets.only(right: 8.0)),
+                      Container(padding: EdgeInsets.only(right: 16.0)),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,12 +109,12 @@ class JobCard extends StatelessWidget {
                                 color: jobType == 0
                                     ? theme_dark_gray
                                     : theme_black,
-                                fontSize: 12),
+                                fontSize: 16),
                           ),
                           Text(
                             jobCardInfo.place,
                             style: TextStyle(
-                                color: theme_darkest_gray, fontSize: 10),
+                                color: theme_darkest_gray, fontSize: 14),
                           )
                         ],
                       ),
@@ -119,7 +125,7 @@ class JobCard extends StatelessWidget {
                           "${jobCardInfo.daysLeft} Days Left",
                           style: TextStyle(
                               color: jobType == 0 ? theme_red : theme_black,
-                              fontSize: 10),
+                              fontSize: 14),
                         ),
                       )
                     ],
